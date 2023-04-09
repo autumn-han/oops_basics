@@ -8,17 +8,20 @@ class User:
         self.gold_card_points = 0
     def display_info(self): # have this method print all info on separate lines
         print(f"{self.first_name}\n{self.last_name}\n{self.email}\n{self.age}\n{self.is_rewards_member}\n{self.gold_card_points}")
+        return self # have methods able to chain to the user
     def enroll(self): # have this method change member status to True and award 200 card points
         if self.is_rewards_member == False: # BONUS: have the enroll method check the status of membership, before determining enrollment
             self.is_rewards_member = True
             self.gold_card_points = 200
         else:
             print("ALERT: member is already enrolled")
+        return self
     def spend_points(self, amount): # have this method deduct a given amount of points from the user
         if self.gold_card_points < amount: # BONUS: have this method be able to check overspending
             print("WARNING: you cannot spend more than your available gold card points")
         else:
             self.gold_card_points = self.gold_card_points - amount
+        return self
 
 autumn_han = User("Autumn", "Han", "autumn9894@gmail.com", "28") # first instance
 autumn_han.display_info()
@@ -38,6 +41,5 @@ autumn_han.display_info()
 jane_doe.display_info()
 billy_bob.display_info()
 
-
-
-
+# chain methods
+autumn_han.enroll().spend_points(50).display_info()
