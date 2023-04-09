@@ -4,6 +4,9 @@ class BankAccount:
         self.first_name = first_name
         self.last_name = last_name
         self.balance = balance
+    @classmethod
+    def display_all_accounts(cls):
+        # write code here
     def deposit(self, amount): # increases the account balance by the given amount
         self.balance = self.balance + amount
         return self
