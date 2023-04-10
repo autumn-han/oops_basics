@@ -35,8 +35,11 @@ class User:
     def make_deposit(self, amount):
         self.account.deposit(amount)
         return self
+    def make_withdrawal(self, amount):
+        self.account.withdraw(amount)
+        return self
     def display_user_balance(self):
         print(f"Balance: ${self.account.balance}")
 
 autumn_han = User("Autumn", 28)
-autumn_han.make_deposit(500).display_user_balance()
+autumn_han.make_deposit(500).make_withdrawal(250).display_user_balance()
