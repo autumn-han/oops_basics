@@ -1,12 +1,14 @@
 class BankAccount:
     bank_name = "Coding Dojo Credit Union"
+    list_of_accounts = []
     def __init__(self, first_name, last_name, balance):
         self.first_name = first_name
         self.last_name = last_name
         self.balance = balance
+        self.__class__.list_of_accounts.append(self)
     @classmethod
-    def display_all_accounts(cls):
-        # write code here
+    def display_all_info(cls):
+        print(cls.list_of_accounts)
     def deposit(self, amount): # increases the account balance by the given amount
         self.balance = self.balance + amount
         return self
@@ -34,3 +36,5 @@ joey_wheeler = BankAccount("Joey", "Wheeler", 750)
 autumn_han.deposit(30).deposit(45).deposit(20).withdraw(200).yield_interest().display_account_info()
 # To the second account, make 2 deposits and 4 withdrawals, then yield interest and display the account's info all in one line of code (i.e. chaining)
 joey_wheeler.deposit(100).deposit(50).withdraw(400).yield_interest().display_account_info()
+
+BankAccount.display_all_info()
