@@ -29,8 +29,8 @@ class User:
         self.age = age
         self.dict_of_accounts = {}
     def create_account(self, account):
-        self.dict_of_accounts[account.account_name] = f"balance - ${account.balance}, interest rate - {account.int_rate}"
-    def make_deposit(self, account, amount):
+        self.dict_of_accounts[account.account_name] = f"balance - {account.balance}, interest rate - {account.int_rate}"
+    def make_deposit(self, account, amount): # need to figure out how to specify which account
         self.dict_of_accounts[account.account_name].deposit(amount)
         return self
     def make_withdrawal(self, amount):
@@ -44,9 +44,13 @@ class User:
 autumn_han = User("Autumn", 28)
 account1 = BankAccount("account1", 300, 0.02)
 account2 = BankAccount("account2", 500, 0.04)
+account3 = BankAccount("account3", 200, 0.02)
 autumn_han.create_account(account1)
 autumn_han.create_account(account2)
+autumn_han.create_account(account3)
 autumn_han.display_all_accounts()
+
+
 
 
 
