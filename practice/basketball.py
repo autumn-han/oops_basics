@@ -28,13 +28,8 @@ JT = Player(jason_tatum)
 KD = Player(kevin_durant)
 KI = Player(kyrie_irving)
 
-KD.player_info("age")
-JT.player_info("name")
-
 # given the example list of players at the top of this module (the one with many players) 
 # write a for loop that will populate an empty list with Player objects from the original list of dictionaries.
-new_list = []
-
 players = [
     {
     "name": "Kevin Durant", 
@@ -71,3 +66,8 @@ players = [
     }
 ]
 
+new_list = []
+for i in range(0, len(players)):
+    new_list.append(players[i])
+
+print(new_list)
