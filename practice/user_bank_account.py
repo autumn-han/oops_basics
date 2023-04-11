@@ -1,13 +1,9 @@
 class BankAccount:
     bank_name = "Coding Dojo Credit Union"
-    list_of_accounts = []
-    def __init__(self, balance, int_rate):
+    def __init__(self, name, balance, int_rate):
+        self.name = name
         self.balance = balance
         self.int_rate = int_rate
-        self.__class__.list_of_accounts.append(self)
-    @classmethod
-    def display_all_info(cls):
-        print(cls.list_of_accounts)
     def deposit(self, amount): # increases the account balance by the given amount
         self.balance = self.balance + amount
         return self
@@ -31,9 +27,14 @@ class User:
     def __init__(self, name, age):
         self.name = name
         self.age = age
-        self.account = BankAccount(int_rate = 0.02, balance = 0)
-    def make_deposit(self, amount):
-        self.account.deposit(amount)
+        self.dict_of_accounts = {}
+    @classmethod
+    def display_all_accounts(cls):
+        print(cls.list_of_accounts)
+    def create_account(self, account):
+        self.dict_of_accounts[account.name] = account
+    def make_deposit(self, account, amount):
+        self.dict_of_accounts[account.name].deposit(amount)
         return self
     def make_withdrawal(self, amount):
         self.account.withdraw(amount)
@@ -42,4 +43,13 @@ class User:
         print(f"Balance: ${self.account.balance}")
 
 autumn_han = User("Autumn", 28)
-autumn_han.make_deposit(500).make_withdrawal(250).display_user_balance()
+
+user = User()
+account = BankAccount('name', 0.1, 100)
+user.addAcc(account)
+acc = user.dict_of_accounts['name']
+user.make_withdrawal(acc, 100)
+account = None
+
+user.make_withdrawal('name', 100)
+
