@@ -33,10 +33,10 @@ class User:
     def make_deposit(self, account, amount): # need to figure out how to specify which account
         self.dict_of_accounts[account.account_name].deposit(amount)
         return self
-    def make_withdrawal(self, amount):
+    def make_withdrawal(self, amount): # also need to figure out how to specify which account
         self.account.withdraw(amount)
         return self
-    def display_user_balance(self):
+    def display_user_balance(self): # maybe find a way to make this able to return the sum of all user balances
         print(f"Balance: ${self.account.balance}")
     def display_all_accounts(self):
         print(f"{self.dict_of_accounts}")
