@@ -5,12 +5,12 @@ class Ninja:
         self.pet = pet
         self.treats = treats
         self.pet_food = pet_food
-    def walk(Pet):
-        pass
+    def walk(self):
+        Pet.play()
     def feed(self):
-        pass
+        Pet.eat()
     def bathe(self):
-        pass
+        Pet.noise()
 
 class Pet:
     def __init__(self, name, type, tricks, sound, health, energy):
