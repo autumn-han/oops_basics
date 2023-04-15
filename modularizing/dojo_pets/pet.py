@@ -19,6 +19,7 @@ class Pet:
     def noise(self):
         print(self.sound)
 
+# use inheritance to make a sub-class of the Pet class
 class Dog(Pet):
     def __init__(self, name, tricks, sound):
         super().__init__(name, tricks, sound)
@@ -32,3 +33,5 @@ class Dog(Pet):
     def play_music(self):
         super().sleep(self)
         return self
+
+Ferna = Dog("Ferna", "sit", "woof woof!")
