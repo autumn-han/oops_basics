@@ -13,17 +13,19 @@ class Ninja:
         pass
 
 class Pet:
-    def __init__(self, name, type, tricks, health, energy):
+    def __init__(self, name, type, tricks, sound, health, energy):
         self.name = name
         self.type = type
         self.tricks = tricks
+        self.sound = sound
         self.health = health
         self.energy = energy
     def sleep(self):
-        pass
+        self.energy += 25
     def eat(self):
-        pass
+        self.energy += 5
+        self.health += 10
     def play(self):
-        pass
+        self.health += 5
     def noise(self):
-        pass
+        print(self.sound)
