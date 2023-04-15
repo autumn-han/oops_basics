@@ -19,3 +19,16 @@ class Pet:
     def noise(self):
         print(self.sound)
 
+class Dog(Pet):
+    def __init__(self, name, tricks, sound):
+        super().__init__(name, tricks, sound)
+        self.health = 10
+        self.energy = 10
+    def throw_ball(self):
+        super().play(self)
+        return self
+    def scratch_ear(self):
+        super().noise(self)
+    def play_music(self):
+        super().sleep(self)
+        return self
