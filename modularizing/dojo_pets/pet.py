@@ -1,5 +1,5 @@
 class Pet:
-    def __init__(self, name, type, tricks, sound):
+    def __init__(self, name, tricks, sound):
         self.name = name
         self.type = type
         self.tricks = tricks
@@ -26,12 +26,20 @@ class Dog(Pet):
         self.health = 10
         self.energy = 10
     def throw_ball(self):
-        super().play(self)
+        print("You threw the ball and {} ran after it!".format(self.name))
+        super().play()
+        return self
+    def offer_treat(self):
+        print("You offer {} a treat, and they {}".format(self.name, self.tricks))
+        super().eat()
         return self
     def scratch_ear(self):
-        super().noise(self)
+        print("You scratch {} behind the ear, and she happily leans into your hand".format(self.name))
+        super().noise()
     def play_music(self):
-        super().sleep(self)
+        print("You play music for {}, and they sleepily close their eyes, lower their muzzle, and doze off".format(self.name))
+        super().sleep()
         return self
 
 Ferna = Dog("Ferna", "sit", "woof woof!")
+Ferna.throw_ball().offer_treat().play_music()
